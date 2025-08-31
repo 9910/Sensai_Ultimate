@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Sensai Ultimate Martial Arts School, our mission, philosophy, and why you should join us.">
+    <meta name="keywords" content="karate, martial arts, Sensai Ultimate, about, dojo, training">
+    <meta property="og:title" content="Sensai Ultimate Martial Arts School - About Us">
+    <meta property="og:description" content="Discover the mission, philosophy, and community of Sensai Ultimate Martial Arts School.">
+    <meta property="og:image" content="/images/karate-bg.jpg">
+    <meta property="og:url" content="https://www.sensaiultimate.com/about.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="./images/logo.PNG" type="image/x-icon">
+    <link rel="preload" href="./images/logo.PNG" as="image">
+    <link rel="preload" href="images/karate-bg.jpg" as="image">
+    <title>About Us - Sensai Ultimate Martial Arts School</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat & Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- AOS for Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- Lightbox2 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Fixed Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: background 0.3s ease, transform 0.3s ease;
+            padding: 8px 16px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+            nav.scrolled {
+                background: rgba(255, 255, 255, 1);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            }
+
+            nav ul li a {
+                position: relative;
+                transition: color 0.3s ease, transform 0.3s ease;
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+
+                nav ul li a::after {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 2px;
+                    bottom: 0;
+                    left: 0;
+                    background: #f87171;
+                    transition: width 0.3s ease;
+                }
+
+                nav ul li a:hover::after,
+                nav ul li a.active::after {
+                    width: 100%;
+                }
+
+                nav ul li a:hover,
+                nav ul li a.active {
+                    color: #f87171;
+                    transform: scale(1.05);
+                }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+            .hamburger span {
+                width: 30px;
+                height: 4px;
+                background: #1e293b;
+                margin: 4px 0;
+                transition: all 0.3s ease;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -8px);
+            }
+
+        /* Mobile Menu */
+        @media (max-width: 640px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                padding: 20px;
+                transform: translateY(-100%);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+                text-align: center;
+                z-index: 1000;
+            }
+
+                nav ul.active {
+                    display: flex;
+                    transform: translateY(0);
+                }
+
+                nav ul li {
+                    margin: 15px 0;
+                }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* Header with Video and Particles */
+        header {
+            position: relative;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 10px;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        @media (min-width: 641px) {
+            header {
+                height: 60vh;
+                margin-top: 0;
+            }
+        }
+
+        header video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(248, 113, 113, 0.2));
+            z-index: -1;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        header > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Animation */
+        .hero {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1.5s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 40px 10px;
+            position: relative;
+            background: linear-gradient(to bottom, #ffffff, #f1f5f9);
+        }
+
+            .gallery::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 80px;
+                background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23f8fafc" fill-opacity="1" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,133.3C672,117,768,139,864,160C960,181,1056,203,1152,197.3C1248,192,1344,160,1392,144L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') no-repeat;
+                background-size: cover;
+            }
+
+        .gallery-card {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .gallery-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            }
+
+        /* Footer */
+        footer {
+            background: #f1f5f9;
+            padding: 30px 10px;
+            color: #1e293b;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 641px) {
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        .social-icons a,
+        .contact-info a,
+        .social-details a {
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding: 5px;
+        }
+
+            .social-icons a:hover,
+            .contact-info a:hover,
+            .social-details a:hover {
+                color: #f87171;
+                transform: scale(1.1);
+            }
+
+        .newsletter input {
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 100%;
+        }
+
+            .newsletter input:focus {
+                border-color: #f87171;
+                box-shadow: 0 0 8px rgba(248, 113, 113, 0.3);
+                outline: none;
+            }
+
+        .cta-button {
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 100%;
+        }
+
+            .cta-button:hover {
+                background: #ef4444;
+                transform: scale(1.05);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+
+        /* Scroll to Top Button */
+        #scrollToTop {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            background: #f87171;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            z-index: 1000;
+            font-size: 1.25rem;
+        }
+
+            #scrollToTop.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            #scrollToTop:hover {
+                background: #ef4444;
+                transform: scale(1.1);
+            }
+
+        /* Responsive Typography */
+        @media (max-width: 640px) {
+            .hero h2 {
+                font-size: 1.5rem;
+                background: linear-gradient(90deg, #ef4444, #f97316);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .hero p {
+                font-size: 0.875rem;
+            }
+
+            .gallery h2 {
+                font-size: 1.5rem;
+            }
+
+            .gallery p {
+                font-size: 0.875rem;
+            }
+
+            .footer-content h3 {
+                font-size: 1rem;
+            }
+
+            .gallery-card {
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                padding: 20px 5px;
+            }
+
+            .gallery-card {
+                padding: 6px;
+            }
+
+            .hero h2 {
+                font-size: 1.25rem;
+            }
+
+            .hero p {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center px-6 py-4">
+        <h1 class="logo text-xl sm:text-2xl font-bold text-gray-800 font-montserrat flex items-center">
+            <img src="./images/logo.PNG" alt="Logo" class="w-8 h-8 mr-2 shadow-sm" onerror="this.src='/images/placeholder.jpg'; this.onerror=null;">
+            Sensai Ultimate
+        </h1>
+        <div class="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="flex gap-4 sm:gap-6">
+            <li><a href="index.html" class="text-gray-800 font-semibold text-sm sm:text-base">Home</a></li>
+            <li><a href="Gallery.html" class="text-gray-800 font-semibold text-sm sm:text-base">Gallery</a></li>
+            <li><a href="classes.html" class="text-gray-800 font-semibold text-sm sm:text-base">Classes</a></li>
+            <li><a href="instructors.html" class="text-gray-800 font-semibold text-sm sm:text-base">Instructors</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <video autoplay muted loop playsinline poster="images/karate-bg.jpg" loading="lazy" onerror="this.poster='/images/placeholder.jpg';">
+            <source src="videos/karate-bg.mp4" type="video/mp4">
+        </video>
+        <div id="particles-js"></div>
+        <div class="hero">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold font-montserrat mb-3 text-white" data-aos="zoom-in">About Our Team & Dojo</h2>
+            <p class="text-sm sm:text-base md:text-lg mb-4 typed-text text-white" data-aos="fade-up" data-aos-delay="200">Meet Our Founder, Teachers, and More</p>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="gallery text-center">
+        <div class="max-w-7xl mx-auto px-2 pb-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+            <div class="gallery-card" data-aos="zoom-in">
+                <a href="./images/founder.jpg" data-lightbox="team" data-title="Founder - Hiroshi Tanaka">
+                    <img src="./images/founder.jpg" class="rounded-lg shadow-md hover:scale-105 transition transform duration-300" alt="Founder" onerror="this.src='/images/placeholder.jpg'; this.onerror=null;">
+                </a>
+                <h3 class="text-lg sm:text-xl font-bold mb-2 text-gray-800">Hiroshi Tanaka</h3>
+                <p class="text-gray-600 text-xs sm:text-sm">Founder with 30+ years of martial arts experience, dedicated to spreading karate's values since 1995.</p>
+            </div>
+            <div class="gallery-card" data-aos="zoom-in">
+                <a href="./images/teacher.jpg" data-lightbox="team" data-title="Teacher - Aiko Sato">
+                    <img src="./images/teacher.jpg" class="rounded-lg shadow-md hover:scale-105 transition transform duration-300" alt="Teacher" onerror="this.src='/images/placeholder.jpg'; this.onerror=null;">
+                </a>
+                <h3 class="text-lg sm:text-xl font-bold mb-2 text-gray-800">Aiko Sato</h3>
+                <p class="text-gray-600 text-xs sm:text-sm">Lead instructor with 15 years of teaching experience, specializing in kids' karate and kata.</p>
+            </div>
+            <div class="gallery-card" data-aos="zoom-in">
+                <a href="./images/student.jpg" data-lightbox="team" data-title="Senior Student - Kenji Yamada">
+                    <img src="./images/student.jpg" class="rounded-lg shadow-md hover:scale-105 transition transform duration-300" alt="Senior Student" onerror="this.src='/images/placeholder.jpg'; this.onerror=null;">
+                </a>
+                <h3 class="text-lg sm:text-xl font-bold mb-2 text-gray-800">Kenji Yamada</h3>
+                <p class="text-gray-600 text-xs sm:text-sm">Senior student and black belt, mentoring peers with 5 years of dedication.</p>
+            </div>
+            <div class="gallery-card" data-aos="zoom-in">
+                <a href="./images/facility.jpg" data-lightbox="team" data-title="Dojo Facility">
+                    <img src="./images/facility.jpg" class="rounded-lg shadow-md hover:scale-105 transition transform duration-300" alt="Dojo Facility" onerror="this.src='/images/placeholder.jpg'; this.onerror=null;">
+                </a>
+                <h3 class="text-lg sm:text-xl font-bold mb-2 text-gray-800">Dojo Facility</h3>
+                <p class="text-gray-600 text-xs sm:text-sm">State-of-the-art training space with mats, mirrors, and equipment for all levels.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#e2e8f0" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,144C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-content">
+            <div class="contact-info" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-base sm:text-lg font-bold mb-3 font-montserrat text-gray-800">Contact Us</h3>
+                <p class="flex justify-center gap-2 items-center mb-1">
+                    <i class="fas fa-envelope text-red-500"></i>
+                    <a href="mailto:info@karatedojo.com" class="text-gray-800 text-sm">info@karatedojo.com</a>
+                </p>
+                <p class="flex justify-center gap-2 items-center mb-1">
+                    <i class="fas fa-phone text-red-500"></i>
+                    <a href="tel:+123456789" class="text-gray-800 text-sm">97170 39372</a>
+                </p>
+                <p class="flex justify-center gap-2 items-center">
+                    <i class="fas fa-map-marker-alt text-red-500"></i>
+                    <span class="text-gray-800 text-sm">Sec-62 Noida HOUSE NUMBER RN24,<br /> NEAR MITHAS</span>
+                </p>
+            </div>
+            <div class="social-details" data-aos="fade-up" data-aos-delay="250">
+                <h3 class="text-base sm:text-lg font-bold mb-3 font-montserrat text-gray-800">Follow Us</h3>
+                <p class="flex justify-center gap-2 items-center mb-1">
+                    <i class="fab fa-facebook text-red-500"></i>
+                    <a href="https://facebook.com/KarateDojoOfficial" class="text-gray-800 text-sm">KarateDojoOfficial</a>
+                </p>
+                <p class="flex justify-center gap-2 items-center mb-1">
+                    <i class="fab fa-twitter text-red-500"></i>
+                    <a href="https://twitter.com/KarateDojoHQ" class="text-gray-800 text-sm">@KarateDojoHQ</a>
+                </p>
+                <p class="flex justify-center gap-2 items-center">
+                    <i class="fab fa-instagram text-red-500"></i>
+                    <a href="https://www.instagram.com/sensai_ultimate_martialrtschol" class="text-gray-800 text-sm">@sensai_ultimate_martialrtschol</a>
+                </p>
+            </div>
+        </div>
+        <div class="social-icons flex justify-center gap-6 mt-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+            <a href="https://facebook.com/KarateDojoOfficial" class="text-xl sm:text-2xl text-gray-800"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/KarateDojoHQ" class="text-xl sm:text-2xl text-gray-800"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/sensai_ultimate_martialrtschol" class="text-xl sm:text-2xl text-gray-800"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p id="copyright" data-aos="fade-up" data-aos-delay="350" class="text-gray-800 text-sm"></p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div id="scrollToTop" class="hidden" aria-label="Scroll to top" role="button" tabindex="0">
+        <i class="fas fa-arrow-up text-xl"></i>
+    </div>
+
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/6d2a4e2b3c.js" crossorigin="anonymous"></script>
+    <!-- AOS for Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Lightbox2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+
+        // DOM Content Loaded
+        window.addEventListener('load', () => {
+            // Initialize Particles.js
+            const particlesContainer = document.getElementById('particles-js');
+            if (particlesContainer) {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: window.innerWidth < 640 ? 20 : (window.innerWidth < 768 ? 40 : 80), density: { enable: true, value_area: 800 } },
+                        color: { value: '#f87171' },
+                        shape: { type: 'circle' },
+                        opacity: { value: 0.4, random: true },
+                        size: { value: 2, random: true },
+                        line_linked: { enable: false },
+                        move: { enable: true, speed: 1, direction: 'none', random: true }
+                    },
+                    interactivity: {
+                        events: { onhover: { enable: window.innerWidth >= 640, mode: 'repulse' } }
+                    }
+                });
+            } else {
+                console.warn('Particles.js container not found');
+            }
+
+            // Initialize Typed.js
+            const typedElement = document.querySelector('.typed-text');
+            if (typedElement) {
+                new Typed('.typed-text', {
+                    strings: ['Our Mission & Vision', 'Philosophy of Growth', 'Join Our Community'],
+                    typeSpeed: 40,
+                    backSpeed: 20,
+                    backDelay: 1500,
+                    loop: true
+                });
+            } else {
+                console.warn('Typed.js element not found');
+            }
+
+            // Initialize Lightbox2
+            if (typeof lightbox !== 'undefined') {
+                lightbox.option({
+                    'resizeDuration': 200,
+                    'wrapAround': true
+                });
+            } else {
+                console.warn('Lightbox2 not loaded');
+            }
+
+            // Hamburger Menu Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('nav ul');
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', () => {
+                    const isActive = navMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                    console.log('Menu toggled, active:', isActive); // Debug log
+                });
+            } else {
+                console.warn('Hamburger or nav menu element not found');
+            }
+
+            // Close mobile menu when clicking a link
+            const links = document.querySelectorAll('nav ul li a');
+            if (links.length > 0) {
+                links.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        const href = link.getAttribute('href');
+                        if (href.startsWith('#')) {
+                            e.preventDefault();
+                            const targetId = href.substring(1);
+                            const targetElement = document.querySelector(targetId);
+                            if (targetElement) {
+                                window.scrollTo({
+                                    top: targetElement.offsetTop - 60,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        } else {
+                            window.location.href = href;
+                        }
+                        if (hamburger && navMenu) {
+                            hamburger.classList.remove('active');
+                            navMenu.classList.remove('active');
+                        }
+                    });
+                });
+            } else {
+                console.warn('No nav links found');
+            }
+
+            // Navbar Scroll Effect
+            const nav = document.querySelector('nav');
+            const scrollBtn = document.querySelector('#scrollToTop');
+            if (nav && scrollBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 30) {
+                        nav.classList.add('scrolled');
+                        scrollBtn.classList.add('visible');
+                    } else {
+                        nav.classList.remove('scrolled');
+                        scrollBtn.classList.remove('visible');
+                    }
+                });
+            } else {
+                console.warn('Nav or scroll button element not found');
+            }
+
+            // Highlight Active Link
+            if (links.length > 0) {
+                links.forEach(link => {
+                    if (link.href === window.location.href) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+
+            // Scroll to Top Button
+            if (scrollBtn) {
+                scrollBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            // Dynamic Copyright Year
+            const copyright = document.getElementById('copyright');
+            if (copyright) {
+                copyright.textContent = `© ${new Date().getFullYear()} Sensai Ultimate Martial Arts School | All Rights Reserved`;
+            }
+
+            // Welcome Console Message
+            console.log('Welcome to the Professional and Mobile-Friendly Sensai Ultimate Martial Arts School About Page!');
+        });
+    </script>
